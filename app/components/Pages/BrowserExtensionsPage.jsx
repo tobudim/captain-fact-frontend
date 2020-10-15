@@ -57,6 +57,29 @@ const BrowserExtensionInstall = ({ label, img, url, name, disabled = false }) =>
   </Flex>
 )
 
+const DisMoiPresentation = ({ t }) => (
+  <>
+    <p>{t('disMoi.new')}</p>
+    <h2 className="title-alt">
+      <strong>{t('disMoi.title')}</strong>
+      <br />
+      {t('disMoi.subtitle')}
+    </h2>
+    <p>{t('disMoi.description')}</p>
+    <p>{t('disMoi.moreInfo')}</p>
+    <p>
+      <ExternalLinkNewTab href="https://opencollective.com/captainfact_io">
+        {t('disMoi.follow')}
+      </ExternalLinkNewTab>
+    </p>
+    <p>
+      <Link className="button is-primary is-medium" to="https://www.dismoi.io/">
+        {t('disMoi.discover')}
+      </Link>
+    </p>
+  </>
+)
+
 export const BrowserExtensionsPage = withNamespaces('extension')(({ t }) => (
   <div className="browser-extension-page">
     <section className="hero is-gradient-primary is-medium is-bold">
@@ -91,6 +114,30 @@ export const BrowserExtensionsPage = withNamespaces('extension')(({ t }) => (
           name="Firefox"
         />
         <BrowserExtensionInstall img={ieLogo} label="Just kidding" name="IE" disabled />
+      </PresentationBox>
+      <Box width={[1, 1, 0.4]} style={{ flexGrow: 1 }}>
+        <ReactPlayer
+          controls
+          width="600px"
+          height="338px"
+          className="video"
+          muted
+          playing
+          loop
+          url={demoExtensionVideo}
+        />
+      </Box>
+    </MainContainer>
+
+    <MainContainer
+      p="1em"
+      flexWrap="wrap"
+      mx="auto"
+      alignItems="center"
+      justifyContent="space-around"
+    >
+      <PresentationBox width={[1, 1, 0.4]} mr={['0em', '5em']} mb="2em" fontSize={4}>
+        <DisMoiPresentation t={t} />
       </PresentationBox>
       <Box width={[1, 1, 0.4]} style={{ flexGrow: 1 }}>
         <ReactPlayer
